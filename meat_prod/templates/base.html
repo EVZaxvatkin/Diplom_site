@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+    <link rel="stylesheet" href="/static/css/styles.css" type="text/css">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Oswald:400,300" type="text/css">
+
+
+     <title>{% block title %} {{title}} {% endblock %}</title>
+
+</head>
+<body>
+	<img src="/media/images/site2.jpg" class="background" />
+
+	<header>
+		        <div class="header-info">
+            <div class="header-info-top">
+                <span class="city">г. Чайковский </span>
+                <span class="phone"> +7 (34241) 2-20-25 </span>
+            </div>
+
+            <nav>
+                <ul>
+                    <li><a href="{% url 'index' %}">Главная</a></li>
+                    <li><a href="{% url 'category' %}">Каталог</a></li>
+                    <li>Заказать</li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        {% block content %}
+        <ul>
+            {% for promo in promos %}
+            <li>{{ promo.name }}</li>
+            {% endfor %}
+        </ul>
+        {% endblock%}
+    </main>
+</body>
+
+</html>

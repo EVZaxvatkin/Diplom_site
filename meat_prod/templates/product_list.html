@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <link rel="stylesheet" href="/static/css/styles1.css" type="text/css">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Oswald:400,300" type="text/css">
+
+
+<title>{% block title %} {{title}} {% endblock %}</title>
+
+</head>
+
+<body>
+    <div class="card">
+        {% for product in products %}
+        <div class="card__top">
+            <div class="csrd__image">
+                <img src="{{ product.image.url }}"/>
+            </div>
+        </div>
+
+        <div class="card__bottom">
+            <a href="{% url 'products' product.id  %}">{{ product.name }}</a>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+
+</html>
+
